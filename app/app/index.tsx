@@ -1,13 +1,18 @@
 import { View, Text, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
-
+import { router } from 'expo-router';
+import { BlurView } from 'expo-blur';
+import { Button, Circle } from '../components';
 
 export default function Home(){
 
     return (
        
             <View style={styles.container}>
-               <View style={styles.circle} />
+                <Circle />
+                <View style={{height: 100}} />
+                <Button onClick={() => router.push('/pathing')} text='start' />
+                <View style={{height: 20}} />
+                <Text style={{opacity: .8, color: 'white', fontSize: 12, fontWeight: 'bold'}}>pathing for the next hour.</Text>
             </View>
        
     )
@@ -23,10 +28,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
     },
-    circle: {
-        height: 180,
-        width: 180,
-        borderRadius: 200,
-        backgroundColor: 'blue'
+    txt: {
+        opacity: .8, 
+        color: 'white', 
+        fontSize: 12, 
+        fontWeight: 'bold'
     }
 })
