@@ -1,9 +1,19 @@
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { BlurView } from 'expo-blur';
 import { Button, Circle, Records } from '../components';
+import { useSharedValue } from 'react-native-reanimated';
 
 export default function Home(){
+
+
+    React.useEffect(() => {
+        console.log("entred home");
+    })
+
+
+    
 
     return (
        
