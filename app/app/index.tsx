@@ -23,7 +23,7 @@ export default function Home(){
                     <Button onClick={() => router.push('/pathing')} text='start' />
                 </Animated.View>
                 <View style={{height: 20}} />
-                <Animated.Text entering={FadeInDown.duration(500).delay(300)} style={{opacity: .8, color: 'white', fontSize: 12, fontWeight: 'bold'}}>pathing for the next hour.</Animated.Text>
+                <Animated.Text entering={FadeInDown.duration(500).delay(300)} style={{ color: 'white', fontSize: 12, fontWeight: 'bold'}}>pathing for the next hour.</Animated.Text>
             </View>
        
     )
