@@ -2,6 +2,27 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Record } from './Record'
 import { LinearGradient } from 'expo-linear-gradient';
+import Animated, {  FadeInDown } from 'react-native-reanimated';
+
+interface IRecord {
+    duration: number;
+    date: string;
+}
+
+const records : IRecord[] = [
+    {
+        duration: 50,
+        date: "22/2/2023"
+    },
+    {
+        duration: 23,
+        date: "21/2/2023"
+    },
+    {
+        duration: 32,
+        date: "20/2/2023"
+    },
+]
 
 
 export const Records : React.FC = () => {
@@ -10,11 +31,13 @@ export const Records : React.FC = () => {
     return (
         <View style={styles.container}>
             
-            <Text style={styles.title}>Last Records</Text>
+            <Animated.Text  entering={FadeInDown.duration(400)} style={styles.title}>Last Records</Animated.Text>
             <View>
-                <Record />
-                <Record />
-                <Record />
+                {
+                    records.map((r, key) => (
+                        <Record key={key} index={key} duration={r.duration} date={r.date} />
+                    ))
+                }
             </View>
             <LinearGradient
                 // Background Linear Gradient

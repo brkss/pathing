@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
 import { BlurView } from 'expo-blur';
 import { Button, Circle, Records } from '../components';
-import { useSharedValue } from 'react-native-reanimated';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
 export default function Home(){
 
@@ -13,17 +13,17 @@ export default function Home(){
     })
 
 
-    
-
     return (
        
-            <View style={styles.container}>
+            <View  style={styles.container}>
                 <Circle />
                 <View style={{height: 100}} />
                 <Records />
-                <Button onClick={() => router.push('/pathing')} text='start' />
+                <Animated.View entering={FadeInDown.duration(500).delay(200)}>
+                    <Button onClick={() => router.push('/pathing')} text='start' />
+                </Animated.View>
                 <View style={{height: 20}} />
-                <Text style={{opacity: .8, color: 'white', fontSize: 12, fontWeight: 'bold'}}>pathing for the next hour.</Text>
+                <Animated.Text entering={FadeInDown.duration(500).delay(300)} style={{opacity: .8, color: 'white', fontSize: 12, fontWeight: 'bold'}}>pathing for the next hour.</Animated.Text>
             </View>
        
     )
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     txt: {
-        opacity: .8, 
+        //opacity: .8, 
         color: 'white', 
         fontSize: 12, 
         fontWeight: 'bold'

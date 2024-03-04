@@ -1,18 +1,26 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
 
 
+interface Props {
+    index: number;
+    duration: number;
+    date: string;
+}
 
+export const Record : React.FC<Props> = ({index}) => {
+    
+   
 
-export const Record : React.FC = () => {
     return (
-        <View style={styles.container}>
+        <Animated.View entering={FadeInDown.duration(400).delay(200 + (100 * (index + 1)))} style={styles.container}>
             <View style={styles.circle} />
             <View style={{justifyContent: 'center'}}>
                 <Text style={styles.title}>pathing for 52min</Text>
                 <Text style={styles.date}>29/02/2024</Text>
             </View>
-        </View>
+        </Animated.View>
     )
 }
 
